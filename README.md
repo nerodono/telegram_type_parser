@@ -8,7 +8,7 @@ Library that simply parses telegram types, for example:
 - `True`: `True`
 - `False`: `False`
 - `Array of <tail>`: as `list[<tail>]` (parsed recursively, for example: `Array of Array of Integer` would be `list[list[int]]`)
-- Others kept as-is (considered composite types)
+- Others are kept as-is (considered composite types)
 
 ## Quickstart
 
