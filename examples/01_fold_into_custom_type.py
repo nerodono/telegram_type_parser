@@ -1,5 +1,5 @@
 from typing import Optional, Callable
-from telegram_type_parser import parse_ex, Folder
+from telegram_type_parser import fold_ex, Folder
 
 
 # IDK what to type so be it
@@ -15,7 +15,7 @@ class AsArray(Folder[int | list[int]]):
             return 2
         return 3 + preset
 
-    def composite(self, tp: str) -> int | list[int]:
+    def ref(self, tp: str) -> int | list[int]:
         return [0, int.from_bytes(tp.encode(), "little")]
 
     def array_of(self, argument: Callable[[], int | list[int]]):
@@ -32,7 +32,7 @@ tps = [
 
 creepycode = AsArray()
 for tp in tps:
-    print(tp, "is", parse_ex(tp, creepycode))
+    print(tp, "is", fold_ex(tp, creepycode))
 
 # Expected output is:
 # Array of Message is [1, [0, 28542640894207309]]

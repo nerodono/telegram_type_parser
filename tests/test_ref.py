@@ -1,6 +1,6 @@
 import pytest
 
-from telegram_type_parser import parse
+from telegram_type_parser import fold
 
 
 # asserts identity
@@ -15,7 +15,7 @@ from telegram_type_parser import parse
     ],
 )
 def test_simple_composite(input_: str) -> None:
-    assert parse(input_) == input_
+    assert fold(input_) == input_
 
 
 @pytest.mark.parametrize(
@@ -31,4 +31,4 @@ def test_simple_composite(input_: str) -> None:
     ],
 )
 def test_nesting(input_: str, expected: str) -> None:
-    assert parse(input_) == expected
+    assert fold(input_) == expected

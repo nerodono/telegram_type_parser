@@ -1,15 +1,15 @@
-from telegram_type_parser import parse
+from telegram_type_parser import fold
 
 
 def test_integer() -> None:
-    assert parse("Integer") == "int"
+    assert fold("Integer") == "int"
 
 
 def test_string() -> None:
-    assert parse("String") == "str"
+    assert fold("String") == "str"
 
 
 def test_boolean() -> None:
-    assert parse("Boolean") == "bool"
-    assert parse("True") == "True"
-    assert parse("False") == "False"
+    assert fold("Boolean") == "bool"
+    assert fold("True") == "True"
+    assert fold("False") == "False"

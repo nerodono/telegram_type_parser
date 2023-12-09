@@ -18,11 +18,11 @@ class Folder(Generic[T], metaclass=ABCMeta):
         raise NotImplementedError
 
     @abstractmethod
-    def array_of(self, argument: Callable[[], T]) -> T:
+    def array_of(self, argument: T) -> T:
         raise NotImplementedError
 
     @abstractmethod
-    def composite(self, tp: str) -> T:
+    def ref(self, tp: str) -> T:
         raise NotImplementedError
 
 
@@ -32,7 +32,7 @@ class StringFolder(Folder[str]):
     def __init__(self, legacy_bindings: bool) -> None:
         self.legacy_bindings = legacy_bindings
 
-    def composite(self, tp: str) -> str:
+    def ref(self, tp: str) -> str:
         return tp
 
     def boolean(self, preset: Optional[bool] = None) -> str:
@@ -46,7 +46,7 @@ class StringFolder(Folder[str]):
     def integer(self) -> str:
         return "int"
 
-    def array_of(self, argument: Callable[[], str]) -> str:
+    def array_of(self, argument: str) -> str:
         if self.legacy_bindings:
-            return f"List[{argument()}]"
-        return f"list[{argument()}]"
+            return f"List[{argument}]"
+        return f"list[{argument}]"

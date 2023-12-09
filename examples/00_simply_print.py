@@ -1,4 +1,4 @@
-from telegram_type_parser import parse
+from telegram_type_parser import fold
 
 tps = [
     "Array of Message",
@@ -9,7 +9,7 @@ tps = [
 ]
 
 for tp in tps:
-    print(tp, "is", parse(tp))
+    print(tp, "is", fold(tp))
 
 # Expected output is:
 # Array of Message is list[Message]
