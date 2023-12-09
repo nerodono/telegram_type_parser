@@ -1,4 +1,4 @@
-from typing import Callable, TypeVar, Optional, Generic
+from typing import TypeVar, Optional, Generic
 from abc import ABCMeta, abstractmethod
 
 T = TypeVar("T")
@@ -15,6 +15,10 @@ class Folder(Generic[T], metaclass=ABCMeta):
 
     @abstractmethod
     def integer(self) -> T:
+        raise NotImplementedError
+    
+    @abstractmethod
+    def float(self) -> T:
         raise NotImplementedError
 
     @abstractmethod
@@ -42,6 +46,9 @@ class StringFolder(Folder[str]):
 
     def string(self) -> str:
         return "str"
+    
+    def float(self) -> str:
+        return "float"
 
     def integer(self) -> str:
         return "int"

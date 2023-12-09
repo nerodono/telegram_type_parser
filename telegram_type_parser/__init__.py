@@ -24,6 +24,8 @@ def fold_ex(tp: str, folder: Folder[T]) -> T:
         return folder.boolean(True)
     elif tp == "False":
         return folder.boolean(False)
+    elif tp == "Float":
+        return folder.float()
 
     return folder.ref(tp)
 

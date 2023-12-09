@@ -13,3 +13,6 @@ def test_boolean() -> None:
     assert fold("Boolean") == "bool"
     assert fold("True") == "True"
     assert fold("False") == "False"
+
+def test_float() -> None:
+    assert fold("Float") == "float"
